@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript" src="./myvue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<h2>{{person.name}} -- {{person.age}}</h2>
+			<h3>{{person.sex}}</h3>
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+			</ul>
+			<div v-text="msg"></div>
+			<div v-text="person.name"></div>
+			<div v-html="htmlStr"></div>
+			<input type="text" v-model="msg" />
+			<button type="button" v-on:click="btnClick">v-on:事件</button>
+			<button type="button" @click="btnClick">@事件</button>
+		</div>
+		<script type="text/javascript">
+			let vm = new Myvue({
+				el: '#app',
+				data: {
+					person: {
+						name: '只会番茄炒蛋',
+						age: 18,
+						sex: '男'
+					},
+					msg: '学习MVVM实现原理',
+					htmlStr: '<h1>我是html指令渲染的</h1>'
+				},
+				methods: {
+					btnClick() {
+						console.log(this)
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
