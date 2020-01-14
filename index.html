@@ -3,6 +3,8 @@
 	<head>
 		<meta charset="utf-8" />
 		<title></title>
+		<script type="text/javascript" src="./compile.js"></script>
+		<script type="text/javascript" src="./observe.js"></script>
 		<script type="text/javascript" src="./myvue.js"></script>
 	</head>
 	<body>
@@ -15,6 +17,7 @@
 				<li>3</li>
 			</ul>
 			<div v-text="msg"></div>
+			<div>{{msg}}</div>
 			<div v-text="person.name"></div>
 			<div v-html="htmlStr"></div>
 			<input type="text" v-model="msg" />
@@ -35,7 +38,7 @@
 				},
 				methods: {
 					btnClick() {
-						console.log(this)
+						console.log(this.msg)
 					}
 				}
 			})
