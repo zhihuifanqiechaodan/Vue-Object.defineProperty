@@ -437,6 +437,10 @@ class Dep {
 	}
 }
 ```
+### 面试题-阐述你所理解的MVVM响应式原理
+Vue是采用数据劫持配合发布者-订阅者模式，通过Object.defineProperty来()来劫持各个属性的getter和setter，在数据发生变化的时候，发布消息给依赖收集器，去通知观察者，做出对应的回调函数去更新视图。
+
+具体就是：MVVM作为绑定的入口，整合Observe,Compil和Watcher三者，通过Observe来监听model的变化，通过Compil来解析编译模版指令，最终利用Watcher搭起Observe和Compil之前的通信桥梁，从而达到数据变化 => 更新视图，视图交互变化(input) => 数据model变更的双向绑定效果。
 ### 总结
 本篇文章主要以`几种实现双向绑定的做法`、`实现Observer`、`实现Compile`、`实现Watcher`、`实现MVVM`这几个模块来阐述了双向绑定的原理和实现。并根据思路流程渐进梳理讲解了一些细节思路和比较关键的内容点，当然肯定有很多不完善的地方，但是对于如何实现双向数据绑定你肯定有了更加深刻的了解。
 
@@ -445,3 +449,4 @@ class Dep {
 最后，感谢您的阅读！
 
 [源码地址](https://github.com/zhihuifanqiechaodan/abu673395239-Vue)
+[参考文章](https://ustbhuangyi.github.io/vue-analysis/)
